@@ -1,7 +1,7 @@
 # the directory of his script file
 dir="$(cd "$(dirname "$0")"; pwd)"
 
-source "$dir/env.sh"
+source "$dir/.env.sh"
 
 # delete the API Gateway 
 aws apigateway delete-rest-api \

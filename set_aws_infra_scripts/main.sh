@@ -4,7 +4,7 @@
 
 dir="$(cd "$(dirname "$0")"; pwd)"
 
-source "$dir/env.sh"
+source "$dir/.env.sh"
 source "$dir/resources/ecr.sh"
 source "$dir/resources/lambda.sh"
 source "$dir/resources/apigateway.sh"
@@ -18,8 +18,8 @@ AWS_ID=$(aws sts get-caller-identity \
     --output text \
     --query 'Account')
 
-sed -i '' "s/AWS_ID=.*$/AWS_ID=$AWS_ID/" "$dir/env.sh" # on mac
-# sed -i "s/AWS_ID=.*$/AWS_ID=$AWS_ID/" "$dir/env.sh" # on linux
+sed -i '' "s/AWS_ID=.*$/AWS_ID=$AWS_ID/" "$dir/.env.sh" # on mac
+# sed -i "s/AWS_ID=.*$/AWS_ID=$AWS_ID/" "$dir/.env.sh" # on linux
 echo "[Success] Login to Aws"
 
 

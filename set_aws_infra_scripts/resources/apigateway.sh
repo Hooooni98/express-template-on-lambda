@@ -1,5 +1,5 @@
 dir="$(cd "$(dirname "$0")"; pwd)"
-source "$dir/env.sh"
+source "$dir/.env.sh"
 
 create_apigateway() {
     AWS_ID=$1
@@ -23,7 +23,7 @@ create_apigateway() {
         --output text)
     API_GATEWAY_ARN="arn:aws:execute-api:${AWS_REGION}:${AWS_ID}:${API_GATEWAY_ID}"
     API_GATEWAY_RESOURCE_NAME='{proxy+}'
-    sed -i '' "s|API_GATEWAY_ID=.*$|API_GATEWAY_ID=$API_GATEWAY_ID|" "$dir/env.sh"
+    sed -i '' "s|API_GATEWAY_ID=.*$|API_GATEWAY_ID=$API_GATEWAY_ID|" "$dir/.env.sh"
 
 
     create_apigateway_resource $API_GATEWAY_ID $API_GATEWAY_ROOT_RESOURCE_ID $API_GATEWAY_RESOURCE_NAME 

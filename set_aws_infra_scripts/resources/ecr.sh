@@ -1,5 +1,5 @@
 dir="$(cd "$(dirname "$0")"; pwd)"
-source "$dir/env.sh"
+source "$dir/.env.sh"
 
 create_ecr() {
     AWS_ID=$1
