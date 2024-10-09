@@ -3,8 +3,10 @@
 set -e # 중간에 실패하면 추후 과정을 진행하지 않고 스크립트 종료
 
 dir="$(cd "$(dirname "$0")"; pwd)"
-cwd=$(pwd)
-source "$dir/set_aws_infra_scripts/.env.sh"
+env_path="$dir/set_aws_infra_scripts/.env.sh"
+if [ -e "$env_path" ]; then
+    source $env_path
+fi
 commit_hash=$1
 
 sudo docker build --platform linux/amd64 -t $DOCKER_IMAGE_NAME .
