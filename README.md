@@ -1,6 +1,6 @@
 # express-template-on-lambda
 
-![infrastructure](image.png)
+![infrastructure](infrastructure_image.png)
 ```
 Deploy a serverless Express project with a single command.
 
