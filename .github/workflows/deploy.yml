@@ -32,12 +32,18 @@ jobs:
       - name: Set up AWS CLI
         uses: aws-actions/configure-aws-credentials@v3
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: 'ap-northeast-2'  
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
         
       - name: Run delopy script
         run: |
           COMMIT_HASH=$(git rev-parse --short HEAD)
           chmod +x deploy.sh
           sh ./deploy.sh $COMMIT_HASH
+        env: 
+          DOCKER_IMAGE_NAME: ${{ secrets.DOCKER_IMAGE_NAME }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          AWS_ID: ${{ secrets.AWS_ID }}
+          ECR_ENDPOINT: ${{ secrets.ECR_ENDPOINT }}
+          LAMBDA_FUNCTION_NAME: ${{ secrets.LAMBDA_FUNCTION_NAME }}
