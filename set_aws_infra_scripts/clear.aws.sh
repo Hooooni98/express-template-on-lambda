@@ -23,7 +23,7 @@ aws iam delete-role \
     --role-name $LAMBDA_ROLE_NAME
 
 # # delete ecr
-# aws ecr delete-repository \
-#     --repository-name $DOCKER_REPOSITORY_NAME \
-#     --force \
-#     >/dev/null
+aws ecr delete-repository \
+    --repository-name $DOCKER_REPOSITORY_NAME \
+    --force \
+    >/dev/null
