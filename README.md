@@ -1,5 +1,15 @@
 # express-template-on-lambda
 
+![infrastructure](image.png)
+```
+Deploy a serverless Express project with a single command.
+
+- Express
+- AWS Lambda
+- AWS Gateway
+- AWS ECR
+```
+
 #### 1. Add ".env.sh" file in "set_aws_infra_scripts"
 ```
 # set_aws_infra_scripts/.env.sh
@@ -21,9 +31,8 @@ API_GATEWAY_ID= #This variable is created automatically
 API_GATEWAY_NAME=
 API_GATEWAY_STAGE=
 ```
-<br/>
 
-#### 2. Fill content .env.sh
+#### Fill content .env.sh
 |<span style="font-size: 12px">KEY|<span style="font-size: 12px">VALUE|
 |------|------|
 |<span style="font-size: 12px">AWS_ACCESS_KEY|<span style="font-size: 12px">AWS IAM user access key|
@@ -38,7 +47,7 @@ API_GATEWAY_STAGE=
 
 </br>
 
-#### 3. Run "main.sh"
+#### 2. Run "main.sh"
 ```
 sh ./set_aws_infra_scripts/main.sh
 ```
@@ -50,7 +59,7 @@ sh ./set_aws_infra_scripts/main.sh
   
 <br/>
 
-#### 4. Test Request
+#### 3. Test Request
 ```
 curl --request GET https://$API_GATEWAY_ID.execute-api.$AWS_REGION.amazonaws.com/dev/hello
 ```
@@ -74,4 +83,11 @@ NODE_ENV="local"
 ```
 $ npm i
 $ npm run dev
+```
+<br />
+
+#### How to local deploy
+- Excute `.deploy.sh` file
+```
+$ sh ./deploy.sh
 ```
