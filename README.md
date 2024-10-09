@@ -3,6 +3,7 @@
 ![infrastructure](infrastructure_image.png)
 ```
 Deploy a serverless Express project with a single command.
+Have CI/CD - triggers GitHub Actions whenever push to the master branch.
 
 - Express
 - AWS Lambda
