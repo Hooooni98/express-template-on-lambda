@@ -67,6 +67,22 @@ curl --request GET https://$API_GATEWAY_ID.execute-api.$AWS_REGION.amazonaws.com
 
 <br/>
 
+#### 4. Set CI/CD env 
+1. go "github repo > Settings > Secrets and variables > Actions"
+2. click "New repository secrets"
+3. copy Keys & Values below to your local .env
+```
+AWS_ACCESS_KEY
+AWS_ID
+AWS_REGION
+AWS_SECRET_KEY
+DOCKER_IMAGE_NAME
+ECR_ENDPOINT
+LAMBDA_FUNCTION_NAME
+```
+
+<br/>
+
 #### How to clear AWS resource
 ```
 sh ./set_aws_infra_scripts/clear.aws.sh
